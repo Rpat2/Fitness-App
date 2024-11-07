@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes and Fitness Tips</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+
+
+
+    {{!-- Quote table  --}}
+    {{!-- This will dynamically display a new quote when the user clicks the new quote button --}}
+    <table id="quoteTable" style="display: none;" class="center">
+        <tbody>
+            <tr>
+                <td id="quoteDisplay"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    {{!-- Fitness table  --}}
+    {{!-- This will dynamically update with a new fitness tip when the user clicks the new tip button --}}
+    <table id="fitnessTipTable" style="display: none;" class = "center"> 
+        <tbody>
+            <tr>
+                <td id="fitnessTipDisplay"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    {{!-- Learn about Functionality table  --}}
+    {{!-- This will display to the user when they want to learn more about the funtionality of the program --}}
+    <table id ="learnTable" style="display:none;" class = "center">
+        <tbody>
+            <tr>
+                <th>Functionality</th>
+                <th>More details</th>
+            </tr>
+            <tr>
+                <td>Generate Workout Plan</td>
+                <td>Enter your fitness level and what you want to workout and get a workout</td>
+            </tr>
+
+             <tr>
+                <td>Track Progress</td>
+                <td>Enter how much you lifted, the number of sets/reps you performed and keep track of your progress and seeing how much you improved</td>
+            </tr>
+
+             <tr>
+                <td>Manage Goals </td>
+                <td>Set and Update goals. Get reminders when you are close to meeting them. Get notifications when you accomplish them</td>
+            </tr>
+
+             <tr>
+                <td>Export Your Workouts</td>
+                <td>Export all the workouts you have been given to make a comprehensive workout plan</td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+
+
+
+    {{!-- Buttons that control what tables are displayed  --}}
+
+    <div class="button-container">
+        <button id="newQuoteButton" class = "myButton"> Get New Quote</button>
+        <button id="newFitnessTipButton" class = "myButton">Get New Fitness Tip</button>
+        <button id ="learnMore" class="myButton"> Learn More</button>
+        <button id = "resetFom" class = "myButton"> Reset</button>
+
+
+    </div>
+    
+    <p class = "tell">Only one item will display at a time. Clicking a new button will clear the previous display</p>
+
+   
+    
+    <script src="/js/client.js"> </script>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+
+html {
+    background-color: rgb(184, 215, 226);;
+}
+
+#mainHeader {
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h1,h2 {
+    background-color: maroon;
+    color:rgb(245, 235, 235);
+    padding:10px;
+    border-radius: 25px;    
+}
+
+.header2 {
+    text-align: center; 
+    margin:auto;
+    width: 53.5%;
+    margin-bottom: 10px;   
+}
+
+
+p {
+    font-size: 25px;   
+}
+
+.options {
+    color: maroon;
+    font-weight: bold;
+    font-size:25px;  
+}
+
+.list {
+    font-size: 22px;;
+}
+
+
+/* CSS for the div */
+.firstPart {
+    
+    border: 5px solid maroon;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 1%;
+    width:50%;
+    margin-left: auto;        
+    margin-right: auto;  
+    border-radius: 25px;    
+}
+
+
+/* CSS for the Navigation  */
+nav {
+    text-align: center;
+    font-size: 25px;
+    margin:2%;
+}
+
+nav a {
+    background-color:  var(--light-blue);
+    color: navy;
+    font-weight:bold; 
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px;
+    border: 4px solid rgb(0, 0, 99);
+
+    border-radius: 25px;
+
+  }
+
+  nav a:hover {
+    background-color: maroon;
+    color: white;
+  }
+
+  .secondForm {
+    display:none;
+  }
+
+  .muscle-group-form {
+    display: none;
+  }
+
+  /* table {
+    border: 1px solid black;
+  } */
+
+  
+  /* th {
+    border: 1px solid black;
+  } */
+
+  /* th {
+    background-color: maroon;
+    color: white;
+  }
+
+  tr:nth-child(even) {background-color: lightgray} */
+
+  /* td {
+    border: 1px solid black;
+  } */
+
+  /* th, td {
+    padding: 15px;
+    text-align: left;
+  } */
+
+table {
+    border-collapse: collapse;
+    margin: 1%;;
+  }
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+
+.button-container {
+    display: flex;              /* Enable flexbox layout */
+    justify-content: center;    /* Center the buttons horizontally */
+    align-items: center;        /* Center the buttons vertically (if necessary) */
+}
+
+.myButton {
+    margin: 10px;            /* Add some space between the buttons */
+    padding: 10px;        /* Padding for the buttons */
+    font-size: 20px;           /* Font size for the button text */
+}
+
+
+th, td {
+    padding:15px;
+    text-align:left; 
+    border: 1px solid black;
+}
+
+/* tr:nth-child(even) {background-color: lightcoral} */
+tr:nth-child(odd) {
+    background-color: white;
+    
+}
+
+tr:nth-child(even) {
+    background-color: lightgrey;
+    
+}
+
+
+th {
+    background-color: maroon;
+    color: white;
+    font-size: 18px;
+}
+
+.resultTable {
+    display: none;
+}
+
+button {
+    margin-top:1%;
+}
+
+.showResults {
+    display:none;
+}
+
+
+label {
+    width:130px;
+    display: inline-block;
+
+}
+
+input {
+   margin-bottom: 10px; 
+}
+
+.seeProgress {
+    display: none;
+}
+
+
+.swap {
+    display:none;
+}
+
+.para {
+  font-size: 20px;
+}
+
+.tell {
+    text-align: center;
+}
