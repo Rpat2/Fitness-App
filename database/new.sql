@@ -235,7 +235,7 @@ VALUES ("Weight"), ("Strength");
 
 
 INSERT INTO MICRO_Goals(goalTypeID, objective, exerciseName, target, targetDate, current, currentDate)
-VALUES (2, "Increase", "Bench Press", 150,"2024-11-25", 135, "2024-11-09");
+VALUES (2, "Increase", "Bench Press", 195,"2024-11-25", 150, "2024-11-09");
 
 INSERT INTO MICRO_Goals(goalTypeID, objective, target, targetDate, current, currentDate)
 VALUES (1, "Gain", 180,"2024-12-20", 165, "2024-11-12");
