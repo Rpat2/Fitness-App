@@ -50,7 +50,7 @@ document.getElementById("sendData").addEventListener("click", async()=>{
             body: JSON.stringify({level, type, muscleGroups})
         });
         
-
+        //Get data back from the microservice in a response object. 
         const fomattedData = await response.json();
 
         //flat() converts a 2D list into a 1D list 

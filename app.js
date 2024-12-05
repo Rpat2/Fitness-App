@@ -59,7 +59,7 @@ app.get('/csv', async (req, res) => {
     // data is in JSON and we can now send it to the csv microserivce that will convert it to csv format 
     
 
-    //Make a POST request to the csv microservice and send te data we got back from Track progress 
+    //Make a POST request to the csv microservice and send te data we got back from Track progress. 
     const getCSV = await fetch("http://localhost:3008/convertCSV", {
         method: 'POST',
         headers: {

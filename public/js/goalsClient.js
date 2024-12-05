@@ -98,7 +98,7 @@ updateButton.addEventListener("click", async(req, res) => {
         
        
         
-        
+        // Make a POST request to the goals microservice. 
         const response = await fetch("http://localhost:3012/updateGoals", {
             method: 'POST',
             headers: {
@@ -107,19 +107,17 @@ updateButton.addEventListener("click", async(req, res) => {
             body: JSON.stringify({goalID, newWeight, newDate})
         });
 
+        //Get data back from the microservice in a response object
         const fomattedData = await response.json();
-        // console.log(fomattedData);
-        // console.log(fomattedData.notificationString);
-        console.log(fomattedData.reminderString);
+        
 
         alert(fomattedData.notificationString);
-
         reminder = document.getElementById("reminder");
         reminder.innerHTML = fomattedData.reminderString;
 
-        //Get the notification back. 
-        //Update the table
-        //Update the dropdown
+       
+
+
         const tableResponse = await fetch("http://localhost:3012/goalData");
         const tableData = await tableResponse.json();
         updateTable(tableData);

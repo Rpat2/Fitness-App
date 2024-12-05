@@ -23,7 +23,7 @@ document.getElementById("sendTrackData").addEventListener("click", async ()=>{
         let date = new Date(formData.get("date"))
     
     
-        //Now this will send a POST request to the track progress micorservice
+        //Make a POST request to the track progress micorservice
         const response = await fetch("http://localhost:3004/trackProg", {
             method: 'POST',
             headers: {
@@ -32,14 +32,14 @@ document.getElementById("sendTrackData").addEventListener("click", async ()=>{
             body: JSON.stringify({name, weight, sets, reps, rest, date})
         });
     
-        // console.log(response)
+      
         if(!response.ok) {
             throw new Error("Could not fetch resource")
         }
         
-        
+        //Get the data back from the microservice in a response object. 
         const fomattedData = await response.json();
-        // console.log(fomattedData);
+       
 
 
 
