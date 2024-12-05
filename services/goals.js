@@ -50,12 +50,9 @@ app.post('/storeGoals', async(req, res)=> {
 
     if (userSelection.goalTypeID == 2 ) {
 
-
         let strengthGoal = `INSERT INTO MICRO_Goals(goalTypeID, objective, exerciseName,target, targetDate, current, currentDate) VALUES (${userSelection.goalTypeID}, "Increase", '${userSelection.exerciseName}', ${userSelection.targetStrength}, '${userSelection.targetDateS}', ${userSelection.currentStrength}, '${userSelection.currentDateS}')` 
 
         let inputStrength = await executeQuery(strengthGoal);
-
-
 
     }
     
@@ -76,7 +73,7 @@ app.post('/updateGoals', async(req, res)=> {
     let oldWeightStatement = `SELECT * FROM MICRO_Goals WHERE goalID = ${data.goalID}`;
     let oldData = await executeQuery(oldWeightStatement);
 
-    // console.log(oldData[0].currentDate);
+    
     
     
 
@@ -101,7 +98,7 @@ app.post('/updateGoals', async(req, res)=> {
     //Check what type of goal the user is trying to update 
     if (oldData[0].goalTypeID == 2) {
         notificationString = `You have increased your ${target[0].exerciseName} by ${diff} pounds. Only ${remain} more pounds until you reach your goal PR!`
-        console.log(notificationString); 
+        
     }
 
     if (oldData[0].goalTypeID == 1) {
@@ -109,7 +106,7 @@ app.post('/updateGoals', async(req, res)=> {
         if (oldData[0].objective == "Gain") {
 
             notificationString = `You have gained ${diff} pounds. Only ${remain} more pounds to go until you reach your goal weight!  `
-            console.log(notificationString);
+            
         }
 
         if (oldData[0].objective == "Lose") {
@@ -125,11 +122,10 @@ app.post('/updateGoals', async(req, res)=> {
     let dateStatement = `SELECT *, DATEDIFF('${data.newDate}', currentDate) AS Days_Since_Last_Update FROM MICRO_Goals ORDER BY Days_Since_Last_Update DESC LIMIT 1;`
 
     let getDate = await executeQuery(dateStatement);
-    console.log(getDate);
-
+   
     let lastUpdate = getDate[0].Days_Since_Last_Update
 
-    // console.log(lastUpdate);
+
 
     
     if (getDate[0].goalTypeID == 1) {
@@ -137,7 +133,7 @@ app.post('/updateGoals', async(req, res)=> {
 
         reminderString = `Update Reminder: It has been ${lastUpdate} days since you updated your ${getDate[0].objective} Weight goal where your target weight is ${getDate[0].target} and your current weight is ${getDate[0].current}` 
 
-        console.log(reminderString);
+       
 
     }
 
@@ -145,24 +141,12 @@ app.post('/updateGoals', async(req, res)=> {
         //Then its a strength goal 
 
         reminderString = `Update Reminder: It has been ${lastUpdate} days since you updated your PR goal for ${getDate[0].exerciseName}. Your target PR is ${getDate[0].target} and your current PR is ${getDate[0].current}`
-        console.log(reminderString);
+       
     }
-    // It has been x days since you updated your (objective) weight goal. 
-    
-    // It has been x days since you updated your PR goal for (exerciseName).
-
-
-    // Get all the dates of the goals order by asc/decs. 
-    // Find which one has not been updated in the longest time. 
-
-
+ 
 
     //Send back the notification telling the user how much they have until the goal is met. 
     res.json({notificationString, reminderString});
-
-    
-
-
 
    
 

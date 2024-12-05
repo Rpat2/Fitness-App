@@ -38,7 +38,7 @@ goalButton.addEventListener("click", async ()=> {
             let currentWeight = weightFormData.get("currentWeight");
             let currentDateW = weightFormData.get("currentDateW");
 
-
+            //Make a HTTP POST request to the Goals Service 
             const response = await fetch("http://localhost:3012/storeGoals", {
                 method: 'POST',
                 headers: {
@@ -98,7 +98,7 @@ updateButton.addEventListener("click", async(req, res) => {
         
        
         
-
+        
         const response = await fetch("http://localhost:3012/updateGoals", {
             method: 'POST',
             headers: {

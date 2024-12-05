@@ -56,7 +56,7 @@ app.post('/generatePlan', async(req, res)=>{
                                 LIMIT 1;`
 
             let test = await executeQuery(exercise);
-            console.log(test);
+            
 
             if (!exerciseNames.includes(test[0].Exercise_Name)){
                 finalList.push(test);
@@ -76,7 +76,7 @@ app.post('/generatePlan', async(req, res)=>{
 
 
     if (typeSelection == "HIIT") {
-        console.log("Hitt was selected");
+    
 
         while (finalList.length <4 ) {
 
@@ -131,6 +131,6 @@ app.post('/generatePlan', async(req, res)=>{
 
 
 app.listen(PORT, () => {
-    console.log('Generate Plan service started on http://localhost:' + PORT);
+    console.log('Generate Workout service started on http://localhost:' + PORT);
 });
 

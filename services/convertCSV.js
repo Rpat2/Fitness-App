@@ -8,7 +8,6 @@ var cors = require('cors');
 app.use(cors());
 
 
-
 //Function from geeksforgeeks.org 
 function jsonToCsv(jsonData) {
     let csv = '';
@@ -35,7 +34,6 @@ app.post('/convertCSV', async(req, res) => {
     dataRecieved = req.body;
 
     let csvData = jsonToCsv(dataRecieved);
-    console.log(typeof csvData)
 
 
     res.send(csvData)

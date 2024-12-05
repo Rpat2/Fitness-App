@@ -40,7 +40,8 @@ document.getElementById("sendData").addEventListener("click", async()=>{
             muscleGroups.push(musclegroupsSelection[i].value);
         }
         
-        // Make a post request to the generate Plan service 
+        
+        // Make a post request to the Generate Workout service 
         const response = await fetch('http://localhost:3002/generatePlan', {
             method: 'POST',
             headers: {
