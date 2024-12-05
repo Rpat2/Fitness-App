@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes and Fitness Tips</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <h1> Fitness App</h1>
+    
+    
+    <nav>
+        <a href = "./"> Home</a>
+        <a href = "./generate"> Generate Workout</a>
+        <a href = "./track"> Track Progress</a>
+        <a href = "./csv"> Convert to CSV</a>
+        <a href = "./goals"> Goals</a>
+    </nav>
+
+    <h2 class = "titleHeader"> Track Progress</h2>
+
+    {{!-- Table that displays all workouts from a particular date --}}
+    
+     <div>
+        <table id = "WorkoutsTable" class = "centerTable">
+            <thead> 
+            <tr>
+                <th>Exercise Name</th>
+                <th>Weight Lifted</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Rest Time</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+        
+
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.exerciseName}}</td>
+                <td>{{this.weightLifted}}</td>
+                <td>{{this.sets}}</td>
+                <td>{{this.reps}}</td>
+                <td>{{this.restTime}}</td>
+                <td>{{this.date}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    </div>
+    <h2> Track Progress for an Exercise:</h2>
+
+    <form id = "testForm">
+        <label for = "name">Exercise Name</label>
+        <input type = "text" id = "name" name ="name">
+        <br>
+        <label for = "weight">Weight Lifted (lbs)</label>
+        <input type = "number" id = "weight" name ="weight">
+        <br>
+        <label for = "sets">Sets</label>
+        <input type = "number" id = "sets" name ="sets">
+        <br>
+        <label for = "reps">Reps</label>
+        <input type = "number" id = "reps" name ="reps">
+        <br>
+        <label for = "rest">Rest Time</label>
+        <input type = "text" id = "rest" name ="rest">
+        <br>
+        <label for = "date">Date</label>
+        <input type = "date" id = "date" name ="date">
+        <br>
+
+    </form>
+
+    <button id = "sendTrackData" type="submit"> Submit </button>
+
+
+    <h2>Performance Analysis:</h2>
+    
+    
+    <div id ="analysis" class = "clean">
+        <p id = "weightProgress"> </p>
+        <p id = "setProgress"> </p>
+        <p id = "repProgress"> </p>
+        <p id = "otherData"></p>
+   </div>
+
+
+   
+
+
+
+
+
+
+
+<script src="/js/trackProgressClient.js"> </script>
+
+</body>
+</html>

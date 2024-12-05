@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quotes and Fitness Tips</title>
-    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+    <h1> Fitness App</h1>
+    <nav>
+        <a href = "./"> Home</a>
+        <a href = "./generate"> Generate Workout</a>
+        <a href = "./track"> Track Progress</a>
+        <a href = "./csv"> Convert to CSV</a>
+        <a href = "./goals"> Goals</a>
+
+
+    </nav>
 
 
 
     {{!-- Quote table  --}}
     {{!-- This will dynamically display a new quote when the user clicks the new quote button --}}
-    <table id="quoteTable" style="display: none;" class="center">
+    {{!-- <table id="quoteTable" style="display: none;" class="center">
         <tbody>
             <tr>
                 <td id="quoteDisplay"></td>
             </tr>
         </tbody>
-    </table>
+    </table> --}}
 
 
     {{!-- Fitness table  --}}
@@ -38,28 +48,28 @@
         <tbody>
             <tr>
                 <th>Functionality</th>
-                <th>More details</th>
+                <th>More Details</th>
             </tr>
             <tr>
-                <td>Generate Workout Plan</td>
-                <td>Enter your fitness level and what you want to workout and get a workout</td>
+                <td>Generate Workout</td>
+                <td>Enter your fitness level, workout type, and muscle groups and get a generated workout</td>
             </tr>
 
              <tr>
                 <td>Track Progress</td>
-                <td>Enter how much you lifted, the number of sets/reps you performed and keep track of your progress and seeing how much you improved</td>
+                <td>Track of your progress for each exercise/workout and see how much you improved from last time</td>
+            </tr>
+
+             <tr>
+                <td>Convert to CSV</td>
+                <td> Covert all your workouts into a csv file so you can keep a record of all your workouts</td>
             </tr>
 
              <tr>
                 <td>Manage Goals </td>
-                <td>Set and Update goals. Get reminders when you are close to meeting them. Get notifications when you accomplish them</td>
+                <td> Set and Update goals. Get notifications about how close you are to reaching a goal. Get reminders when you have not updated a goal recently</td>
             </tr>
 
-             <tr>
-                <td>Export Your Workouts</td>
-                <td>Export all the workouts you have been given to make a comprehensive workout plan</td>
-            </tr>
-           
         </tbody>
     </table>
 
@@ -69,15 +79,15 @@
     {{!-- Buttons that control what tables are displayed  --}}
 
     <div class="button-container">
-        <button id="newQuoteButton" class = "myButton"> Get New Quote</button>
-        <button id="newFitnessTipButton" class = "myButton">Get New Fitness Tip</button>
+        {{!-- <button id="newQuoteButton" class = "myButton"> Get New Quote</button> --}}
+        <button id="newFitnessTipButton" class = "myButton">Get New Fitness/Health Tip</button>
         <button id ="learnMore" class="myButton"> Learn More</button>
         <button id = "resetFom" class = "myButton"> Reset</button>
 
 
     </div>
     
-    <p class = "tell">Only one item will display at a time. Clicking a new button will clear the previous display</p>
+    {{!-- <p class = "tell">Only one item will display at a time. Clicking a new button will clear the previous display</p> --}}
 
    
     

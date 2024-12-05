@@ -1,5 +1,11 @@
 -- This is mySQL database that has 2 tables Quotes and FitnessTips with data inserted in both of them. 
 
+DROP TABLE IF EXISTS Quotes;
+DROP TABLE IF EXISTS FitnessTips;
+DROP TABLE IF EXISTS MuscleGroups;
+DROP TABLE IF EXISTS Complexities;
+DROP TABLE IF EXISTS Types;
+DROP TABLE IF EXISTS Excercises;
 
 CREATE OR REPLACE TABLE Quotes(
     quoteID int NOT NULL AUTO_INCREMENT,
@@ -44,7 +50,59 @@ VALUES
 ("To lose weight: Find your maintenance calories using an online calculator, then eat 300-500 calories less than that number. Large calorie deficits will affect your energy levels. "),
 ("Some healthy sources of carbs include: Quinoa, potatoes, beans, oats, fruits"),
 ("Some healthy sources of protein include: Chicken, Greek yogurt, eggs, red meat, fish"),
-("Some healthy sources of fats include walnuts, almonds, seeds, milk, olive oil, eggs ")
+("Some healthy sources of fats include walnuts, almonds, seeds, milk, olive oil, eggs ");
+
+
+CREATE OR REPLACE TABLE MuscleGroups(
+    muscleGroupID int AUTO_INCREMENT NOT NULL,
+    name varchar(20) ,
+    PRIMARY KEY(muscleGroupID)
+);
+
+INSERT INTO MuscleGroups(name) 
+VALUES ("Chest"),("Shoulders"),("Back"), ("Arms"), ("Lower Body");
+
+
+CREATE OR REPLACE TABLE Complexities(
+    complexityID int AUTO_INCREMENT NOT NULL,
+    name varchar(20) ,
+    PRIMARY KEY(complexityID)
+);
+
+INSERT INTO Complexities(name) 
+VALUES ("Compound"),("Isolation");
+
+CREATE OR REPLACE TABLE Types(
+    typeID int AUTO_INCREMENT NOT NULL,
+    name varchar(20) ,
+    PRIMARY KEY(typeID)
+);
+
+INSERT INTO Types(name) 
+VALUES ("Weight Lifting"),("HITT");
+
+CREATE OR REPLACE TABLE Exercises(
+    exerciseID int AUTO_INCREMENT NOT NULL,
+    name varchar(50),
+    muscleGroupID int, 
+    complexityID int, 
+    typeID int, 
+    PRIMARY KEY (exerciseID),
+    FOREIGN KEY (muscleGroupID) REFERENCES MuscleGroups(muscleGroupID),
+    FOREIGN KEY (complexityID) REFERENCES Complexities(complexityID),
+    FOREIGN KEY (typeID) REFERENCES Types(typeID)
+);
+
+
+
+
+INSERT INTO Exercises(name, muscleGroupID, complexityID, typeID)
+VALUES
+("Overhead Press", (SELECT muscleGroupID FROM MuscleGroups WHERE name ="Shoulders"), (SELECT complexityID FROM Complexities WHERE name = "Compound"), (SELECT typeID FROM Types WHERE name = "Weight Lifting")),
+("Bench Press", (SELECT muscleGroupID FROM MuscleGroups WHERE name ="Chest"), (SELECT complexityID FROM Complexities WHERE name = "Compound"), (SELECT typeID FROM Types WHERE name = "Weight Lifting")),
+("Bent Over Rows", (SELECT muscleGroupID FROM MuscleGroups WHERE name ="Back"), (SELECT complexityID FROM Complexities WHERE name = "Compound"), (SELECT typeID FROM Types WHERE name = "Weight Lifting")),
+("Bicep Curls", (SELECT muscleGroupID FROM MuscleGroups WHERE name ="Arms"), (SELECT complexityID FROM Complexities WHERE name = "Isolation"), (SELECT typeID FROM Types WHERE name = "Weight Lifting")),
+("Tricep Extensions", (SELECT muscleGroupID FROM MuscleGroups WHERE name ="Arms"), (SELECT complexityID FROM Complexities WHERE name = "Isolation"), (SELECT typeID FROM Types WHERE name = "Weight Lifting"));
 
 
 

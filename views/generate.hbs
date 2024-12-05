@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <h1> Fitness App</h1>
+    <nav>
+        <a href = "./"> Home</a>
+        <a href = "./generate"> Generate Workout</a>
+        <a href = "./track"> Track Progress</a>
+        <a href = "./csv"> Convert to CSV</a>
+        <a href = "./goals"> Goals</a>
+    </nav>
+
+    <h2 class= "titleHeader" >Generate Workout</h2>
+
+    <h2>Select your Fitness Level:</h2>
+    
+     <form id = "firstForm" class="levelSelection">
+        <input type = "radio" id ="beginner" name ="options" value ="Beginner" class = "press"> 
+        <label for ="beginner"> Beginner</label>
+        <br>
+        <input type = "radio" id ="intermediate" name ="options" value = "Intermediate" class ="press"> 
+        <label for ="intermediate"> Intermediate</label>
+        <br>
+        <input type = "radio" id ="advanced" name="options" value = "Advanced" class="press"> 
+        <label for ="advanced"> Advanced</label>
+    </form>
+
+    <div id = "secondForm" class="typeSelection">
+
+        <h2>Select what type of workout you want to do:</h2>
+        
+
+        <form>
+            <input type = "radio" id ="weights" name ="workoutType" value ="Weights"> 
+            <label for ="weights"> Weight-lifting</label>
+            <br>
+            <input type = "radio" id ="HIIT" name ="workoutType" value = "HIIT"> 
+            <label for ="HIIT"> HIIT</label>
+        </form>
+    </div>  
+
+
+     <div id = "thirdForm" class = "muscleGroupSelection">
+
+        <h2>Select what muscle groups you want to train:</h2>
+    
+        <form>
+            <input type = "checkbox" id ="chest" class = "muscleSelection" name ="muscle" value ="Chest"> 
+            <label for ="chest"> Chest</label>
+            <br>
+            <input type = "checkbox" id ="back" class ="muscleSelection" name = "muscle" value = "Back"> 
+            <label for ="back"> Back</label>
+            <br>
+            <input type = "checkbox" id ="shoulders" class ="muscleSelection" name ="muscle" value = "Shoulders"> 
+            <label for ="shoulders"> Shoulders</label>
+            <br>
+            <input type = "checkbox" id ="biceps" class ="muscleSelection" name ="muscle" value = "biceps"> 
+            <label for ="biceps"> Biceps</label>
+            <br>
+            <input type = "checkbox" id ="triceps" class ="muscleSelection" name ="muscle" value = "triceps"> 
+            <label for ="triceps"> Triceps</label>
+            <br>
+            <input type = "checkbox" id ="lowerBody" class ="muscleSelection" name="muscle" value = "LowerBody"> 
+            <label for ="lowerBody"> Lower Body</label>
+            <br>
+        </form>
+
+    </div>
+
+    <div>
+        <table id = "ResultTable" class ="generateResults">
+            <tr>
+                <th>Exercise Name</th>
+                <th>Muslce Group</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Rest Time</th>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table id = "ResultTableHIIT" class = "generateResults">
+            <tr>
+                <th>Exercise Name</th>
+                <th>Sets</th>
+                <th>Duration (seconds)</th>
+                <th>Rest Time</th>
+            </tr>
+        </table>
+
+    </div>
+
+
+    
+
+
+    <button id = "sendData" type="submit" class="submitChoices"> Submit </button>
+
+
+
+<script src="/js/generatePlanClient.js"> </script>
+
+
+</body>
+
+</html>

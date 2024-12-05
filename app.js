@@ -1,16 +1,12 @@
 
-//Set up express server
 var express = require('express');   
 var app     = express();            
 
-//Set up handlebars for templating 
 const { engine } = require('express-handlebars');
 var exphbs = require('express-handlebars');
 app.engine('.hbs', engine({extname: ".hbs"}));
 app.set('view engine', '.hbs');  
 app.use(express.static('public'));
-
-//Define a port number for the program to listen on
 PORT        = 3023;                
 
 
@@ -30,17 +26,79 @@ function executeQuery(query) {
                 return reject(error);
             }
             resolve(results);
+            
         });
     });
 }
 
 
 
-// Get the index page with nothing on it. This is what the user will see when they load up the application
+// Get the index page. 
 app.get('/', (req, res) => {
     res.render('index');
 });
 
+
+
+//Generate Workout Microservice 
+app.get('/generate', (req, res) => {
+    res.render('generate');
+    
+});
+
+
+
+//Make downloadable CSV file microservice. 
+app.get('/csv', async (req, res) => {
+    
+    //Get the workout data from the Track Progress service using HTTP requests. 
+    workoutData = await fetch("http://localhost:3004/tableData");
+
+
+    data = await workoutData.json()
+    // data is in JSON and we can now send it to the csv microserivce that will convert it to csv format 
+    
+
+    //Make a POST request to the csv microservice and send te data we got back from Track progress 
+    const getCSV = await fetch("http://localhost:3008/convertCSV", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify(data)
+    });
+
+    csvFormat = await getCSV.text();
+    res.render('csv', {csvData: csvFormat});
+
+    
+});
+
+// Track progress service. 
+app.get('/track', async (req, res)=> {
+
+    const response = await fetch("http://localhost:3004/tableData");
+
+    data = await response.json();
+
+    res.render('track', {data:data});
+
+
+})
+
+
+
+// Set and Manage Goals Service. 
+app.get('/goals', async(req, res) => {
+
+    const response = await fetch("http://localhost:3012/goalData");
+    
+    goalData = await response.json();
+    // console.log(goalData);
+
+    res.render('goals', {data:goalData}); 
+})
 
 
 // path for getting a quote
@@ -51,20 +109,26 @@ app.get('/new-quote', async (req, res) => {
 
     try {
         let quoteRows = await executeQuery(newQuoteQuery);  //Wait for the promise 
+        
 
         // Send the new quote as JSON
+        
         res.json({
             quote: quoteRows[0]
         });
+
+        
         //Catch any errors 
     } catch (error) {
         console.error(error);
     }
 });
 
+
+
 // Path for getting a fitness tip
-//This will be called when onsome clicks the new fitness tip button
-//When a new tip is requested is will query the database respond with the tip in a json format. 
+// This will be called when someone clicks the new fitness tip button
+// When a new tip is requested is will query the database respond with the tip in a json format. 
 app.get('/new-fitness-tip', async (req, res) => {
     let newFitnessTipQuery = "SELECT statement FROM FitnessTips ORDER BY RAND() LIMIT 1";
 

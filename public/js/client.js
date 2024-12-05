@@ -3,36 +3,37 @@
 
 
 //This is an event listener placed on the new quote button. 
-document.getElementById('newQuoteButton').addEventListener('click', async () => {
+// document.getElementById('newQuoteButton').addEventListener('click', async () => {
     
-    try {
-        // Fetch is used to make an HTTP request to the app.js. Fetch returns a promise, Await makes an async function wait for a promise before continuing
-        //The app.js has a path that handles this endpoint.
-        const response = await fetch('/new-quote');
+//     try {
+//         // Fetch is used to make an HTTP request to the app.js. Fetch returns a promise, Await makes an async function wait for a promise before continuing
+//         //The app.js has a path that handles this endpoint.
+//         const response = await fetch('/new-quote');
+        
 
-        //If the response is not ok then a error will be thrown 
-        if (!response.ok) {
-            throw new Error('Could not get the resouce');
-        }
+//         //If the response is not ok then a error will be thrown 
+//         if (!response.ok) {
+//             throw new Error('Could not get the resouce');
+//         }
 
-        //If the response was ok then we create a data constant that converrts the response to JSON. 
-        const data = await response.json();
-
-        //This manipulates the innter HTML of the display quote table to show the new quote
-        document.getElementById('quoteDisplay').innerHTML = `"${data.quote.statement}" - ${data.quote.author}`;
-
-
-        // Hide the fitness tip table and show the quote table when the quote is displayed 
-        document.getElementById('fitnessTipTable').style.display = 'none';
-        document.getElementById('quoteTable').style.display = 'table';
-        document.getElementById('learnTable').style.display = 'none';
+//         //If the response was ok then we create a data constant that converts the response to JSON. 
+//         const data = await response.json();
+    
+//         //This manipulates the innter HTML of the display quote table to show the new quote
+//         document.getElementById('quoteDisplay').innerHTML = `"${data.quote.statement}" - ${data.quote.author}`;
 
 
-    //If a promise returns an error then catch that error
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-    }
-});
+//         // Hide the fitness tip table and show the quote table when the quote is displayed 
+//         document.getElementById('fitnessTipTable').style.display = 'none';
+//         document.getElementById('quoteTable').style.display = 'table';
+//         document.getElementById('learnTable').style.display = 'none';
+
+
+//     //If a promise returns an error then catch that error
+//     } catch (error) {
+//         console.error('There was a problem with the fetch operation:', error);
+//     }
+// });
 
 
 //This is an event listener that is placed on the new fitness tip button. 
@@ -55,7 +56,7 @@ document.getElementById('newFitnessTipButton').addEventListener('click', async (
         document.getElementById('fitnessTipDisplay').innerHTML = data.fitnessTip.statement;
 
         // Hide the quote table and show the fitness tip table
-        document.getElementById('quoteTable').style.display = 'none';
+        // document.getElementById('quoteTable').style.display = 'none';
         document.getElementById('fitnessTipTable').style.display = 'table';
         document.getElementById('learnTable').style.display = 'none';
 

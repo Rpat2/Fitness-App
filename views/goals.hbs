@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes and Fitness Tips</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <h1> Fitness App</h1>
+    <nav>
+        <a href = "./"> Home</a>
+        <a href = "./generate"> Generate Workout</a>
+        <a href = "./track"> Track Progress</a>
+        <a href = "./csv"> Convert to CSV</a>
+        <a href = "./goals"> Goals</a>
+    </nav>
+    <h2 class = "titleHeader">Set and Manage Goals</h2>
+
+
+    <div>
+        <table id = "GoalTable" class = "centerTable">
+            <thead> 
+            <tr>
+                <th>Goal Type</th>
+                <th>Objective</th>
+                <th>Exercise Name</th>
+                <th>Target Weight</th>
+                <th>Target Date</th>
+                <th>Current Weight</th>
+                <th>Date of Last Update</th>
+            </tr>
+            </thead>
+        
+
+        <tbody>
+            {{#each data}}
+            <tr>
+                {{!-- <td>{{this.goalID}}</td> --}}
+                <td>{{this.type}}</td>
+                <td>{{this.objective}}</td>
+                <td>{{this.exerciseName}}</td>
+                <td>{{this.target}}</td>
+                <td>{{this.targetDate}}</td>
+                <td>{{this.current}}</td>
+                <td>{{this.currentDate}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    </div>
+
+    <h2>Select the Type of Goal you want to set:</h2>
+
+
+    <form id = "firstSelection" class="">
+        <input type = "radio" id ="weight" name ="options" value ="Weight" class = "press"> 
+        <label for ="weight"> Body Weight Goal </label>
+        <br>
+        <input type = "radio" id ="strength" name ="options" value = "Strength" class ="press"> 
+        <label for ="strength"> Strength Goal</label>
+        <br>
+    </form>
+
+
+   
+     
+    <form id = "WeightForm" class = "goalForms">
+        <p>My Body Weight Goal:</p>
+        
+        <label for="objective">Choose a objective:</label>
+        <select name="objective" id="objective">
+            <option value="Gain">Gain</option>
+            <option value="Lose">Lose</option>
+        </select>
+        <br>
+        <label for="targetWeight">Target Weight:</label>
+        <input type="number" id="targetWeight" name="targetWeight">
+        <br>
+        <label for = "targetDateW">Target Date</label>
+        <input type = "date" id = "targetDateW" name ="targetDateW">
+
+        <p> My Current Weight:</p>
+        <label for="currentWeight">Current Weight:</label>
+        <input type="text" id="currentWeight" name="currentWeight">
+        <br>
+        <label for = "currentDateW">Current Date</label>
+        <input type = "date" id = "currentDateW" name ="currentDateW">
+
+    </form>
+
+
+
+    <form id = "StrengthForm" class = "goalForms">
+        <p> Strength Goal: I want to increase: </p>
+
+        <label for="exerciseName">Exercise Name</label>
+        <input type="text" id="exerciseName" name="exerciseName">
+        <br>
+
+        <label for="targetStrength">Target PR:</label>
+        <input type="targetStrength" id="targetStrength" name="targetStrength">
+        <br>
+
+        <label for = "targetDateS">Target Date</label>
+        <input type = "date" id = "targetDateS" name ="targetDateS">
+
+        <p> My Current Strength:</p>
+
+        <label for="currentStrength">Current PR:</label>
+        <input type="text" id="currentStrength" name="currentStrength">
+        <br>
+        <label for = "currentDateS">Current Date</label>
+        <input type = "date" id = "currentDateS" name ="currentDateS">
+    </form>
+
+
+
+    <button id = "sendGoalData" type="submit" class="goalDataButton"> Submit </button>
+
+    <br>
+    <hr>
+
+ 
+    <h2>Update Progress Towards a Goal:</h2>
+    <form id = "updateForm" class = "goalForm">
+
+        
+
+        <label for="goalSelect">Chose a Goal</label>
+        <select name="goalSelect" id="goalDropDown">
+            {{#each data}}
+            <option value="{{this.goalID}}"> {{this.objective}} - {{this.type}} {{this.exerciseName}} - My Goal is {{this.target}} by {{this.targetDate}} - My Current weight is {{this.current}} </option>
+            {{/each}}
+            
+        </select>
+        <br>
+        <br>
+        <label for="newCurrentWeight">New Weight:</label>
+        <input type="text" id="newCurrentWeight" name="newCurrentWeight">
+        <br>
+        <label for = "newCurrentDate">Current Date</label>
+        <input type = "date" id = "newCurrentDate" name = "newCurrentDate">
+    </form>
+
+
+    <button id = "updateGoalData" type="submit" class=""> Submit </button>
+
+    <h2>Reminders:</h2>
+    
+    <div id ="goalReminder" class = "">
+        <p id = "reminder"> </p>
+   </div>
+
+
+
+
+
+
+
+<script src="/js/goalsClient.js"> </script>
+</body>
+</html>
