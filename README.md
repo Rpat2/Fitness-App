@@ -8,34 +8,34 @@ A full-stack fitness application built with a microservices architecture, enabli
 
 **Frontend**: Handlebars, CSS
 
-Database: SQL (relational)
+**Database**: SQL (relational)
 
-Other: RESTful APIs, asynchronous data handling
+**Other**: RESTful APIs, asynchronous data handling
 
 ## Features
 
-Workout Generator: Generates personalized workouts based on user input.
+**Workout Generator**: Generates personalized workouts based on user input.
 
-Progress Tracker: Logs and visualizes user progress over time.
+**Progress Tracker**: Logs and visualizes user progress over time.
 
-Goals Management: Allows users to set, update, and monitor fitness goals.
+**Goals Management**: Allows users to set, update, and monitor fitness goals.
 
-CSV Export: Enables users to export workout data for offline use.
+**CSV Export**: Enables users to export workout data for offline use.
 
-Responsive Frontend: Dynamic web pages with asynchronous updates for a smooth user experience.
+**Responsive Frontend**: Dynamic web pages with asynchronous updates for a smooth user experience.
 
 ## Architecture
 
-Microservices: Four independently running services for handling different functionalities:
+**Microservices**: Four independently running services for handling different functionalities:
 
-Workout Generation
+    1. Workout Generation
 
-Progress Tracking
+    2. Progress Tracking
 
-Goal Management
+    3. Goal Management
 
-CSV Export
+    4. CSV Export
 
-API Endpoints: 13 endpoints implemented to enable communication between services and the main interface.
+**API Endpoints**: 13 endpoints implemented to enable communication between services and the main interface.
 
-Database: Relational SQL database with 6 tables and 12+ optimized queries for efficient data access and scalability.
+**Database**: Relational SQL database with 6 tables and 12+ optimized queries for efficient data access and scalability.
