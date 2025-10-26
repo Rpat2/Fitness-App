@@ -2,7 +2,7 @@
 
 A full-stack fitness application built with a microservices architecture, enabling users to generate custom workouts, track progress, manage goals, and export workout data. The project demonstrates RESTful API design, relational database management, and a responsive front-end interface.
 
-Technologies Used
+## Technologies Used
 
 Backend: Node.js, Express.js
 
