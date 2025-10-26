@@ -12,7 +12,7 @@ Database: SQL (relational)
 
 Other: RESTful APIs, asynchronous data handling
 
-Features
+## Features
 
 Workout Generator: Generates personalized workouts based on user input.
 
@@ -24,7 +24,7 @@ CSV Export: Enables users to export workout data for offline use.
 
 Responsive Frontend: Dynamic web pages with asynchronous updates for a smooth user experience.
 
-Architecture
+## Architecture
 
 Microservices: Four independently running services for handling different functionalities:
 
