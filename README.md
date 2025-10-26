@@ -4,9 +4,9 @@ A full-stack fitness application built with a microservices architecture, enabli
 
 ## Technologies Used
 
-Backend: Node.js, Express.js
+** Backend **: Node.js, Express.js
 
-Frontend: Handlebars, CSS
+** Frontend **: Handlebars, CSS
 
 Database: SQL (relational)
 
